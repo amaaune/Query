@@ -1,26 +1,38 @@
 
 let deathCount = 0;
 let score = 0;
+let level = 0;
+
 
 const question = document.getElementById("question-text");
 const answer = document.getElementById("answers-container");
 const deathMess = document.getElementById("death-message");
 const restart = document.getElementById("restart-btn");
 
-// Set une fonction qui load les bonnes question en fonction du niveau -> let dbQ = *le tableau simple,inter ou avancee*
+function selectQuestion(level) {
+    if (level == 0) {
+        return questionsSimples;
+    } else if (level == 1) {
+        return questionsIntermediaires;
+    } else if (level == 2) {
+        return questionsAvancees;
+    }
+};
 
-function checkAnswer(ans, verif) {
+let dbQ = selectQuestion(level);
+
+function checkAnswer(ans, verif, db) {
     if (ans == verif) {
         alert("Bonne reponse !")
     } else {
         alert("MAUVAIS !!!")
     }
-    displayQuestion();
+    displayQuestion(db);
 };
 
-function displayQuestion() {
-    let random = Math.floor(Math.random() * questionsSimples.length);
-    let quSel = questionsSimples[random];
+function displayQuestion(dbQ) {
+    let random = Math.floor(Math.random() * dbQ.length);
+    let quSel = dbQ[random];
 
     question.innerHTML = quSel.question;
     answer.innerHTML = "";
@@ -28,14 +40,14 @@ function displayQuestion() {
         let element = document.createElement("button");
         element.innerHTML = quSel.reponses[i];
         element.classList.add("answer-btn");
-        element.addEventListener("click", () => {checkAnswer(i, quSel.valid)});
+        element.addEventListener("click", () => {checkAnswer(i, quSel.valid, dbQ)});
         answer.appendChild(element);
     };
-    questionsSimples.splice(random, 1);
+    dbQ.splice(random, 1);
 };
 
 
-displayQuestion();
+displayQuestion(dbQ);
 
 // function qcm() {
     
