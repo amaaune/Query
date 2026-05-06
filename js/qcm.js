@@ -3,11 +3,14 @@ let deathCount = 0;
 let score = 0;
 let level = 0;
 
-
 const question = document.getElementById("question-text");
 const answer = document.getElementById("answers-container");
 const deathMess = document.getElementById("death-message");
 const restart = document.getElementById("restart-btn");
+
+function leveSelect() {
+    
+};
 
 function selectQuestion(level) {
     if (level == 0) {
@@ -46,9 +49,4 @@ function displayQuestion(dbQ) {
     dbQ.splice(random, 1);
 };
 
-
 displayQuestion(dbQ);
-
-// function qcm() {
-    
-// };

@@ -99,3 +99,36 @@ h1 {
 #restart-btn:hover {
     background-color: #cc0000;
 }
+
+#settings-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#settings-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+#settings-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#settings-content {
+    background: #1a1a1a;
+    border: 1px solid #8B6914;
+    padding: 30px;
+    border-radius: 8px;
+    min-width: 300px;
+}
