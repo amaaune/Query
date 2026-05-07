@@ -1,0 +1,27 @@
+.settings-action-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #2a2a2a;
+    color: #c8a96e;
+    border: 1px solid #8B6914;
+    border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.settings-action-btn:hover {
+    background: #3a3a2a;
+}
+    
+.settings-action-btn.danger {
+    color: #ff6b6b;
+    border-color: #8B2020;
+}
+
+.settings-action-btn.danger:hover {
+    background: #2a1a1a;
+}

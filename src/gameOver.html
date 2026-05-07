@@ -3,30 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="../css/gameOver.css">
+    <link rel="stylesheet" href="../css/popup.css">
     <title>Query</title>
 </head>
 <body>
-
     <div id="bg"></div>
-
-    <div id="home-container">
-        <div id="buttons">
-            <button class="menu-btn" onclick="startGame()">
-                <img src="img/jouer.png" alt="Jouer">
-            </button>
-            <button class="menu-btn" onclick="openLeaderboard()">
-                <img src="img/leaderB.png" alt="Leaderboard">
-            </button>
-            <button class="menu-btn" onclick="quitGame()">
-                <img src="img/quitter.png" alt="Quitter">
-            </button>
-        </div>
-    </div>
-
     <button id="settings-btn" onclick="document.getElementById('settings-modal').style.display='flex'">
-        <img src="img/reglages.png" alt="Réglages">
+        <img src="../img/reglages.png" alt="Réglages">
     </button>
     <div id="settings-modal" style="display:none">
         <div id="settings-content">
@@ -42,7 +26,7 @@
 
     <p id="footer">© Query — YNOV</p>
     <div id="transition-overlay"></div>
-    <script src="js/utilitys.js"></script>
+    <script src="../js/utilitys.js"></script>
 
 </body>
 </html>
