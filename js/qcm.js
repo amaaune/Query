@@ -28,6 +28,16 @@ function selectQuestion(level) {
         return questionsIntermediaires;
     } else if (level == 2) {
         return questionsAvancees;
+    } else if (level == 3) {
+        if (Math.random() > 0.2) {
+            return questionsAvancees;
+        } else {
+            if (Math.random() >= 0.5) {
+            return questionsIntermediaires;
+            } else {
+                return questionsSimples;
+            }
+        }
     }
 };
 
@@ -56,7 +66,7 @@ function checkAnswer(ans, verif, db, mode) {
             dmg = 5;
             score += 1;
         }
-        bosses[currentBossIndex].pv -= dmg;
+        bosses[currentBossIndex].pv = Math.max(0, bosses[currentBossIndex].pv - dmg);
         bossImg.classList.add("hit");
         setTimeout(() => {
             bossImg.classList.remove("hit");
@@ -120,6 +130,8 @@ function displayQuestion(dbQ, count = 0) {
 
     question.innerHTML = currentQuestion.question;
     answer.innerHTML = "";
+    document.getElementById("cache-input").value = "";
+    document.getElementById("mode-btns").style.display = "flex";
 
     if (count == 0) {
         cacheForm.style.display = "flex";
