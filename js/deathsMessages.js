@@ -1,4 +1,5 @@
 const death = [
+    "Chocoblast",
     "Perdu.",
     "Game Over.",
     "As-tu révisé ?",
