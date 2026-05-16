@@ -54,7 +54,7 @@ h1 {
 ══════════════════════════════ */
 
 #boss-name {
-    font-size: 1rem;
+    font-size: 3rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #ff4444;
@@ -107,7 +107,7 @@ h1 {
 
 /* Image du boss */
 #boss-img {
-    max-height: 180px;
+    max-height: 400px;
     width: auto;
     object-fit: contain;
     margin: 0 auto;
@@ -219,6 +219,18 @@ h1 {
     box-shadow: 0 0 12px rgba(230, 120, 20, 0.5);
 }
 
+/* ans X4 — orange */
+.answer-btn.x4 {
+    border-color: #e07820;
+    color: #f0a050;
+}
+
+.answer-btn.x4:hover {
+    background-color: rgba(230, 120, 20, 0.4);
+    border-color: #e07820;
+    color: #000;
+}
+
 #X2-ans {
     background: rgba(200, 40, 40, 0.2);
     color: #ff6b6b;
@@ -229,6 +241,20 @@ h1 {
     background: rgba(200, 40, 40, 0.4);
     transform: scale(1.03);
     box-shadow: 0 0 12px rgba(200, 40, 40, 0.5);
+}
+
+/* ans X2 — rouge clignotant */
+.answer-btn.x2 {
+    border-color: #cc2020;
+    color: #ff6b6b;
+    animation: dangerBlink 1.2s ease infinite;
+}
+
+.answer-btn.x2:hover {
+    background-color: rgba(200, 40, 40, 0.4);
+    border-color: #ff4444;
+    color: #fff;
+    animation: none;
 }
 
 /* Clignotement X2 pour signaler le danger */
