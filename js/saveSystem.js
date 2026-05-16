@@ -1,6 +1,6 @@
 const SAVE_KEY = "horrorGameSave";
 
-export const saveSystem = {
+const saveSystem = {
 
     // Charger la sauvegarde ou créer un état par défaut
     load() {
