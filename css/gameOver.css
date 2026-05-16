@@ -84,3 +84,103 @@
     min-width: 300px;
     color: white;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#death-msg {
+    position: relative;
+    z-index: 1;
+    font-size: 1.8rem;
+    color: #ff4444;
+    text-shadow: 0 0 12px rgba(255, 68, 68, 0.7);
+    text-align: center;
+    max-width: 600px;
+    padding: 0 20px;
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+#score {
+    position: relative;
+    z-index: 1;
+    font-size: 1.2rem;
+    color: #C8A028;
+    letter-spacing: 0.15em;
+    margin-bottom: 40px;
+}
+
+#replay-btn, #quit-btn {
+    position: relative;
+    z-index: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#replay-btn img, #quit-btn img {
+    width: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+#replay-btn:hover img, #quit-btn:hover img {
+    filter: drop-shadow(0 0 18px rgba(200, 140, 40, 0.9));
+    transform: scale(1.05);
+}
+
+#leaderboard-submit {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+#pseudo-input {
+    padding: 10px 16px;
+    background: rgba(30, 30, 30, 0.9);
+    border: 2px solid #C8A028;
+    border-radius: 6px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+}
+
+#pseudo-input:focus {
+    border-color: #f0c040;
+    box-shadow: 0 0 10px rgba(200, 160, 40, 0.4);
+}
+
+#submit-score {
+    padding: 10px 20px;
+    background: rgba(200, 160, 40, 0.2);
+    border: 2px solid #C8A028;
+    border-radius: 6px;
+    color: #C8A028;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#submit-score:hover {
+    background: rgba(200, 160, 40, 0.4);
+}
