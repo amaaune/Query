@@ -1,11 +1,17 @@
-/* Styles de base avec l'image en fond */
+/* ── RESET ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── BODY ── */
 body {
     background-image: url('../img/background.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
     color: #ffffff;
     font-family: 'Courier New', Courier, monospace;
     display: flex;
@@ -13,56 +19,251 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    margin: 0;
     position: relative;
+    overflow: hidden;
 }
 
-/* Effet "verre fumé" pour garder le texte lisible sur le fond coloré */
+/* ── GAME CONTAINER ── */
 #game-container {
     background-color: rgba(20, 20, 20, 0.85);
     backdrop-filter: blur(8px);
     border: 2px solid #4CAF50;
     border-radius: 12px;
-    padding: 40px;
+    padding: 24px 40px 40px;
     max-width: 750px;
     width: 90%;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
+/* ── TITRE ── */
 h1 {
     color: #4CAF50; 
-    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
     text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    font-size: 1.8rem;
 }
 
+/* ══════════════════════════════
+   HUD BOSS (partie haute)
+══════════════════════════════ */
+
+#boss-name {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ff4444;
+    text-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
+}
+
+/* Chiffres PV */
+#boss-pv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.85rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    z-index: 1;
+}
+
+/* Conteneur barre */
+#boss-pv-bar {
+    width: 100%;
+    height: 28px;
+    background-color: rgba(80, 20, 20, 0.6);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 68, 68, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Remplissage rouge */
+#boss-pv-fill {
+    height: 100%;
+    width: 100%; /* mis à jour dynamiquement par le JS */
+    background: linear-gradient(90deg, #cc0000, #ff4444);
+    border-radius: 6px;
+    transition: width 0.4s ease;
+    position: relative;
+}
+
+/* Reflet brillant sur la barre */
+#boss-pv-fill::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 40%;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px 6px 0 0;
+}
+
+/* Image du boss */
+#boss-img {
+    max-height: 180px;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(0 0 12px rgba(255, 68, 68, 0.4));
+    transition: filter 0.1s ease, transform 0.1s ease;
+}
+
+/* Animation shake quand le boss prend des dégâts */
+@keyframes bossShake {
+    0%   { transform: translateX(0); }
+    20%  { transform: translateX(-6px); }
+    40%  { transform: translateX(6px); }
+    60%  { transform: translateX(-4px); }
+    80%  { transform: translateX(4px); }
+    100% { transform: translateX(0); }
+}
+
+/* Flash rouge quand le boss prend des dégâts */
+@keyframes bossFlash {
+    0%   { filter: drop-shadow(0 0 12px rgba(255, 68, 68, 0.4)) brightness(1); }
+    50%  { filter: drop-shadow(0 0 24px rgba(255, 0, 0, 0.9)) brightness(2) sepia(1) hue-rotate(-30deg); }
+    100% { filter: drop-shadow(0 0 12px rgba(255, 68, 68, 0.4)) brightness(1); }
+}
+
+#boss-img.hit {
+    animation: bossShake 0.4s ease, bossFlash 0.4s ease;
+}
+
+/* ══════════════════════════════
+   HUD JOUEUR (partie basse)
+══════════════════════════════ */
+
+/* Cœurs joueur */
+#player-pv {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 1.6rem;
+    padding: 0 4px;
+}
+
+/* ── QUESTION ── */
 #question-text {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
+    font-size: 1.2rem;
     line-height: 1.5;
-    min-height: 60px; 
+    min-height: 60px;
+    padding: 16px;
+    background: rgba(76, 175, 80, 0.08);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    border-radius: 8px;
+    text-align: left;
 }
 
-#answers-container {
+/* ── MODE CACHÉ (form + input) ── */
+#cache-ans {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
 }
 
-/* Style des boutons de réponse */
+#cache-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(30, 30, 30, 0.9);
+    border: 2px solid #4CAF50;
+    border-radius: 6px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#cache-input:focus {
+    border-color: #6fcf72;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+}
+
+/* ── BOUTONS X4 / X2 ── */
+#mode-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+#X4-ans, #X2-ans {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#X4-ans {
+    background: rgba(230, 120, 20, 0.2);
+    color: #f0a050;
+    border: 2px solid #e07820;
+}
+
+#X4-ans:hover {
+    background: rgba(230, 120, 20, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(230, 120, 20, 0.5);
+}
+
+#X2-ans {
+    background: rgba(200, 40, 40, 0.2);
+    color: #ff6b6b;
+    border: 2px solid #cc2020;
+}
+
+#X2-ans:hover {
+    background: rgba(200, 40, 40, 0.4);
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(200, 40, 40, 0.5);
+}
+
+/* Clignotement X2 pour signaler le danger */
+@keyframes dangerBlink {
+    0%, 100% { border-color: #cc2020; box-shadow: none; }
+    50%       { border-color: #ff4444; box-shadow: 0 0 16px rgba(255, 68, 68, 0.8); }
+}
+
+#X2-ans {
+    animation: dangerBlink 1.2s ease infinite;
+}
+
+#X2-ans:hover {
+    animation: none; /* stoppe le blink au survol pour le feedback hover */
+}
+
+/* ── ANSWERS CONTAINER (X4/X2) ── */
+#answers-container {
+    display: none; /* caché par défaut, affiché par le JS */
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Boutons de réponse générés par le JS */
 .answer-btn {
     background-color: rgba(44, 44, 44, 0.8);
     color: #fff;
     border: 1px solid #555;
     padding: 15px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-family: inherit;
     cursor: pointer;
     transition: all 0.2s ease;
     border-radius: 6px;
+    text-align: left;
 }
 
 .answer-btn:hover {
@@ -72,19 +273,18 @@ h1 {
     transform: scale(1.02);
 }
 
-/* Zone pour les messages du Troll */
+/* ── MESSAGES DE MORT ── */
 #death-message {
-    margin-top: 25px;
     color: #ff4444;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     min-height: 30px;
     text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+    font-style: italic;
 }
 
-/* Bouton pour recommencer caché par défaut */
+/* ── RESTART BTN ── */
 #restart-btn {
-    margin-top: 25px;
     background-color: #ff4444;
     color: white;
     border: none;
@@ -94,13 +294,18 @@ h1 {
     font-family: inherit;
     text-transform: uppercase;
     border-radius: 4px;
-    display: none; 
+    display: none; /* caché par défaut */
     transition: background-color 0.2s ease;
+    letter-spacing: 0.1em;
 }
 
 #restart-btn:hover {
     background-color: #cc0000;
 }
+
+/* ══════════════════════════════
+   SETTINGS
+══════════════════════════════ */
 
 #settings-btn {
     position: fixed;
@@ -135,4 +340,5 @@ h1 {
     padding: 30px;
     border-radius: 8px;
     min-width: 300px;
+    color: white;
 }
