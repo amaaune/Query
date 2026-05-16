@@ -45,6 +45,7 @@ body {
     list-style: none;
     padding: 12px 24px;
     margin: 0;
+    min-height: 400px;
     width: min(420px, 90vw);   /* s'adapte aux petits écrans */
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(6px);
