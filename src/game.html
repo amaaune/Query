@@ -12,11 +12,27 @@
     <div id="game-container">
         <h1>Query_</h1>
         
-        <div id="question-text">Chargement de l'épreuve...</div>
-        
-        <div id="answers-container">
-            <!-- Les boutons seront générés ici par ton script JS -->
+        <!-- <div id="question-text">Chargement de l'épreuve...</div> -->
+        <div id="boss-name"></div>
+        <div id="boss-pv-bar">
+            <div id="boss-pv-fill"></div>
+            <div id="boss-pv"></div>
         </div>
+        <img id="boss-img" src="" alt="BossImg">
+        
+
+        <div id="player-pv"></div>
+        <div id="question-text"></div>
+
+        <form id="cache-ans">
+            <input type="text" id="cache-input" placeholder="Ta réponse...">
+            <button type="submit" style="display:none"></button>
+        </form>
+        <div id="mode-btns">
+            <button id="X4-ans">X4</button>
+            <button id="X2-ans">X2</button>
+        </div>
+        <div id="answers-container"></div>
 
         <div id="death-message"></div>
         
@@ -40,13 +56,14 @@
     </div>
 
 <!--Essaye page Game over-->
-    <div id="buttons">
+    <!-- <div id="buttons">
         <button class="menu-btn" onclick="gameOver()">
             <img src="../img/jouer.png" alt="Jouer">
         </button>
-    </div>
+    </div> -->
     
     <div id="transition-overlay"></div>
+    <script src="../js/mobs.js"></script>
     <script src="../js/questionsSimples.js"></script>
     <script src="../js/questionsIntermediaires.js"></script>
     <script src="../js/questionsAvancee.js"></script>
@@ -54,5 +71,7 @@
     <script src="../js/navigation.js"></script>
     <script src="../js/utilitys.js"></script>
     <script src="../js/qcm.js"></script>
+    <script src="../js/gameRun.js"></script>
+
 </body>
 </html>
