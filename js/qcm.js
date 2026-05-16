@@ -3,6 +3,23 @@ const question = document.getElementById("question-text");
 const answer = document.getElementById("answers-container");
 const deathMess = document.getElementById("death-message");
 const restart = document.getElementById("restart-btn");
+const cacheForm = document.getElementById("cache-ans");
+
+document.getElementById("X4-ans").addEventListener("click", () => showAnswers(4));
+document.getElementById("X2-ans").addEventListener("click", () => showAnswers(2));
+
+let currentQuestion = null;
+let currentDb = null;
+
+
+cacheForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const input = document.getElementById("cache-input");
+    const userAnswer = input.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const validAnswer = currentQuestion.reponses[currentQuestion.valid].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    checkAnswer(userAnswer, validAnswer, currentDb, "cache");
+    input.value = "";
+});
 
 function selectQuestion(level) {
     if (level == 0) {
@@ -16,8 +33,19 @@ function selectQuestion(level) {
 
 function checkAnswer(ans, verif, db, mode) {
     let dmg;
-    if (ans == verif) {
-        alert("Bonne reponse !");
+    let correct;
+
+    if (mode == "cache") {
+        const isNumber = !isNaN(ans.trim());
+        if (isNumber) {
+            correct = ans.trim().length >= 1 && verif.includes(ans.trim());
+        } else {
+            correct = ans.length >= 2 && verif.includes(ans);
+        }
+    } else {
+        correct = ans == verif;
+    }
+    if (correct) {
         if (mode == "cache") {
             dmg = 15;
             score+= 5;
@@ -29,6 +57,11 @@ function checkAnswer(ans, verif, db, mode) {
             score += 1;
         }
         bosses[currentBossIndex].pv -= dmg;
+        bossImg.classList.add("hit");
+        setTimeout(() => {
+            bossImg.classList.remove("hit");
+        }, 400);
+        updateHUD();
     } else {
         if (mode == "cache") {
             dmg = 1;
@@ -38,30 +71,59 @@ function checkAnswer(ans, verif, db, mode) {
             dmg = 3;
         }
         playerLives -= dmg;
-        alert("MAUVAIS !!!")
+        updateHUD();
     }
     if (bosses[currentBossIndex].pv <= 0) {
         nextBoss();
     } else if (playerLives <= 0) {
-        // lancer sur la page de game over avec le message basé sur deathCount
-        gameOver();
+        triggerGameOver();
     } else {
         displayQuestion(db);
     }
 };
 
-function displayQuestion(dbQ) {
-    let random = Math.floor(Math.random() * dbQ.length);
-    let quSel = dbQ[random];
-
-    question.innerHTML = quSel.question;
+function showAnswers(count) {
+    cacheForm.style.display = "none";
+    answer.style.display = "flex";
     answer.innerHTML = "";
-    for (let i = 0; i < quSel.reponses.length; i++) {
+    let reponses = [];
+    let mode = count == 4 ? "X4" : "X2";
+    if (mode == "X2") {
+    let wrongIndex;
+    do {
+        wrongIndex = Math.floor(Math.random() * currentQuestion.reponses.length);
+    } while (wrongIndex == currentQuestion.valid);
+
+    reponses = [currentQuestion.reponses[currentQuestion.valid], currentQuestion.reponses[wrongIndex]];
+    reponses.sort(() => Math.random() - 0.5); // mélange
+} else {
+    reponses = currentQuestion.reponses; // X4 prend tout
+}
+    for (let i = 0; i < count; i++) {
         let element = document.createElement("button");
-        element.innerHTML = quSel.reponses[i];
+        element.innerHTML = reponses[i];
         element.classList.add("answer-btn");
-        element.addEventListener("click", () => {checkAnswer(i, quSel.valid, dbQ)});
+        element.classList.add(count == 4 ? "x4" : "x2");
+        const bonneReponse = currentQuestion.reponses[currentQuestion.valid];
+        element.addEventListener("click", () => {
+            const estCorrect = reponses[i] == bonneReponse;
+            checkAnswer(estCorrect ? currentQuestion.valid : -1, currentQuestion.valid, currentDb, mode);
+        });
         answer.appendChild(element);
-    };
+    }
+};
+
+function displayQuestion(dbQ, count = 0) {
+    let random = Math.floor(Math.random() * dbQ.length);
+    currentQuestion = dbQ[random];
+    currentDb = dbQ;
+
+    question.innerHTML = currentQuestion.question;
+    answer.innerHTML = "";
+
+    if (count == 0) {
+        cacheForm.style.display = "flex";
+        answer.style.display = "none";
+    }
     dbQ.splice(random, 1);
 };
