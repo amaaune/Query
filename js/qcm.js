@@ -1,16 +1,8 @@
 
-let deathCount = 0;
-let score = 0;
-let level = 0;
-
 const question = document.getElementById("question-text");
 const answer = document.getElementById("answers-container");
 const deathMess = document.getElementById("death-message");
 const restart = document.getElementById("restart-btn");
-
-function leveSelect() {
-    
-};
 
 function selectQuestion(level) {
     if (level == 0) {
@@ -22,15 +14,40 @@ function selectQuestion(level) {
     }
 };
 
-let dbQ = selectQuestion(level);
-
-function checkAnswer(ans, verif, db) {
+function checkAnswer(ans, verif, db, mode) {
+    let dmg;
     if (ans == verif) {
-        alert("Bonne reponse !")
+        alert("Bonne reponse !");
+        if (mode == "cache") {
+            dmg = 15;
+            score+= 5;
+        } else if (mode == "X4") {
+            dmg = 10;
+            score += 3
+        } else if (mode == "X2") {
+            dmg = 5;
+            score += 1;
+        }
+        bosses[currentBossIndex].pv -= dmg;
     } else {
+        if (mode == "cache") {
+            dmg = 1;
+        } else if (mode == "X4") {
+            dmg = 2;
+        } else if (mode == "X2"){
+            dmg = 3;
+        }
+        playerLives -= dmg;
         alert("MAUVAIS !!!")
     }
-    displayQuestion(db);
+    if (bosses[currentBossIndex].pv <= 0) {
+        nextBoss();
+    } else if (playerLives <= 0) {
+        // lancer sur la page de game over avec le message basé sur deathCount
+        gameOver();
+    } else {
+        displayQuestion(db);
+    }
 };
 
 function displayQuestion(dbQ) {
@@ -48,5 +65,3 @@ function displayQuestion(dbQ) {
     };
     dbQ.splice(random, 1);
 };
-
-displayQuestion(dbQ);
