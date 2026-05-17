@@ -1,8 +1,8 @@
-export const audioManager = {
+const audioManager = {
     sounds: {
-        ambient: new Audio("assets/sounds/ambient.mp3"),
-        screamer: new Audio("assets/sounds/screamer.mp3"),
-        click: new Audio("assets/sounds/click.wav")
+        ambient: new Audio("/sounds/ambient.mp3"),
+        // screamer: new Audio("/sounds/screamer.mp3"),
+        // click: new Audio("/sounds/click.wav")
     },
 
     play(name) {

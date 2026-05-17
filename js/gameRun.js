@@ -61,4 +61,7 @@ function gameRun() {
     displayQuestion(level);
 };
 
+document.addEventListener("click", () => {
+    audioManager.fadeInAmbient();
+}, { once: true });
 gameRun();

@@ -21,11 +21,4 @@ if (list) {
       `;
       list.appendChild(li);
     });
-}
-  function backBtn() {
-    const overlay = document.getElementById('transition-overlay');
-    overlay.classList.add('active');
-    setTimeout(() => {
-        window.location.href = '../index.html';
-    }, 600);
 };

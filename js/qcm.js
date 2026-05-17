@@ -1,8 +1,6 @@
 
 const question = document.getElementById("question-text");
 const answer = document.getElementById("answers-container");
-const deathMess = document.getElementById("death-message");
-const restart = document.getElementById("restart-btn");
 const cacheForm = document.getElementById("cache-ans");
 
 document.getElementById("X4-ans").addEventListener("click", () => showAnswers(4));
