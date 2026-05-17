@@ -1,6 +1,6 @@
-const savedState = saveSystem.load();
-const deathCount = savedState.deathCount;
-const finalScore = savedState.score;
+const stats = JSON.parse(localStorage.getItem("queryStats") || "{}");
+const deathCount = stats.deathCount || 0;
+const finalScore = stats.score || 0;
 
 // Affiche le message de mort selon le nombre de morts
 const msgIndex = Math.min(deathCount, death.length - 1);
