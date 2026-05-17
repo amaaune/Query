@@ -41,7 +41,7 @@ function nextBoss() {
 
 function triggerGameOver() {
     deathCount++;
-    saveSystem.fullReset(); // efface querySave → pas de bouton Continuer
+    saveSystem.fullReset();
     localStorage.setItem("queryStats", JSON.stringify({ deathCount, score }));
     gameOver();
 };

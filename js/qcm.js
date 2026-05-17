@@ -105,9 +105,9 @@ function showAnswers(count) {
     } while (wrongIndex == currentQuestion.valid);
 
     reponses = [currentQuestion.reponses[currentQuestion.valid], currentQuestion.reponses[wrongIndex]];
-    reponses.sort(() => Math.random() - 0.5); // mélange
+    reponses.sort(() => Math.random() - 0.5);
 } else {
-    reponses = currentQuestion.reponses; // X4 prend tout
+    reponses = currentQuestion.reponses;
 }
     for (let i = 0; i < count; i++) {
         let element = document.createElement("button");
