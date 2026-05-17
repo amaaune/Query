@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/victory.css">
+    <link rel="stylesheet" href="../css/popup.css">
+    <title>Query — Victory</title>
+</head>
+<body>
+    <div id="bg"></div>
+
+    <div id="victory-container">
+        <!-- <h1 id="victory-title">VICTORY</h1> -->
+        <div id="score"></div>
+
+        <div id="leaderboard-submit">
+            <input type="text" id="pseudo-input" placeholder="Ton pseudo...">
+            <button id="submit-score">Soumettre</button>
+        </div>
+
+        <button id="menu-btn">
+            <img src="../img/menu_principal.png" alt="Menu Principal">
+        </button>
+        <button id="quit-btn">
+            <img src="../img/quitter.png" alt="Quitter">
+        </button>
+    </div>
+
+    <button id="settings-btn" onclick="document.getElementById('settings-modal').style.display='flex'">
+        <img src="../img/reglages.png" alt="Réglages">
+    </button>
+    <div id="settings-modal" style="display:none">
+        <div id="settings-content">
+            <h2>Réglages</h2>
+            <div id="settings-actions">
+                <button class="settings-action-btn danger" onclick="quitGame()">Quitter</button>
+                <button class="settings-action-btn" onclick="document.getElementById('settings-modal').style.display='none'">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="transition-overlay"></div>
+    <script src="../js/saveSystem.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/utilitys.js"></script>
+    <script src="../js/victory.js"></script>
+</body>
+</html>
