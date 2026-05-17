@@ -12,8 +12,6 @@ document.getElementById("menu-btn").addEventListener("click", () => {
 });
 
 document.getElementById("quit-btn").addEventListener("click", () => {
-    localStorage.removeItem("deathCount");
-    localStorage.removeItem("score");
     const overlay = document.getElementById("transition-overlay");
     overlay.classList.add("active");
     setTimeout(() => {

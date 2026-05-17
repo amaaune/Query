@@ -3,6 +3,7 @@ let score = savedState.score;
 let currentBossIndex = savedState.currentBossIndex;
 let playerLives = savedState.playerLives;
 let deathCount = savedState.deathCount;
+let bossPvMax = 0;
 const bossName = document.getElementById("boss-name");
 const bossPv = document.getElementById("boss-pv");
 const playerPv = document.getElementById("player-pv");
@@ -20,13 +21,15 @@ function displayGameWin() {
 };
 
 function updateHUD() {
+    const hearts = document.getElementById("hearts");
     bossName.innerHTML = bosses[currentBossIndex].name;
     bossPv.innerHTML = bosses[currentBossIndex].pv + "/" + bossPvMax;
     bossPvFill.style.width = (bosses[currentBossIndex].pv / bossPvMax * 100) + "%";
     bossImg.src = bosses[currentBossIndex].img;
-    playerPv.innerHTML = "";
+    hearts.innerHTML = "";
+    document.getElementById("player-score").innerHTML = score + " pts";
     for (let i = 0; i < playerLives; i++) {
-    playerPv.innerHTML += "❤️";
+        hearts.innerHTML += "❤️";
     }
 };
 

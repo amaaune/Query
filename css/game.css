@@ -144,10 +144,18 @@ h1 {
 /* Cœurs joueur */
 #player-pv {
     display: flex;
-    justify-content: flex-start;
-    gap: 8px;
-    font-size: 1.6rem;
+    justify-content: space-between; /* cœurs à gauche, score à droite */
+    align-items: center;
+    width: 100%;
     padding: 0 4px;
+}
+
+#player-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #C8A028;
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 8px rgba(200, 160, 40, 0.6);
 }
 
 /* ── QUESTION ── */
@@ -268,18 +276,22 @@ h1 {
 }
 
 #X2-ans:hover {
-    animation: none; /* stoppe le blink au survol pour le feedback hover */
+    animation: none;
 }
 
 /* ── ANSWERS CONTAINER (X4/X2) ── */
 #answers-container {
-    display: none; /* caché par défaut, affiché par le JS */
-    flex-direction: column;
+    display: none;
+    flex-direction: row;
     gap: 12px;
+    justify-content: center;
 }
 
 /* Boutons de réponse générés par le JS */
 .answer-btn {
+    flex: 1 1 calc(50% - 6px);
+    max-width: calc(50% - 6px);
+    min-height: 60px;
     background-color: rgba(44, 44, 44, 0.8);
     color: #fff;
     border: 1px solid #555;

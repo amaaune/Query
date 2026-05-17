@@ -28,7 +28,7 @@ function openLeaderboard() {
     const overlay = document.getElementById('transition-overlay');
     overlay.classList.add('active');
     setTimeout(() => {
-        window.location.href = 'src/leaderboard.html'; // à créer
+        window.location.href = 'src/leaderboard.html';
     }, 600);
 };
 
