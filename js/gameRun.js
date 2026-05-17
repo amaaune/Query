@@ -1,8 +1,8 @@
-let score = 0;
-let currentBossIndex = 0;
-let playerLives = 3;
-let deathCount = parseInt(localStorage.getItem("deathCount")) || 0;
-let bossPvMax = 0;
+const savedState = saveSystem.load();
+let score = savedState.score;
+let currentBossIndex = savedState.currentBossIndex;
+let playerLives = savedState.playerLives;
+let deathCount = savedState.deathCount;
 const bossName = document.getElementById("boss-name");
 const bossPv = document.getElementById("boss-pv");
 const playerPv = document.getElementById("player-pv");
@@ -25,7 +25,7 @@ function updateHUD() {
 };
 
 function nextBoss() {
-    currentBossIndex++
+    currentBossIndex++  
     if (currentBossIndex < bosses.length) {
         gameRun();
     } else  {
@@ -35,14 +35,23 @@ function nextBoss() {
 
 function triggerGameOver() {
     deathCount++;
-    localStorage.setItem("deathCount", deathCount);
-    localStorage.setItem("score", score);
+    saveSystem.save({
+        currentBossIndex: 0,
+        playerLives: 3,
+        score: score,
+        deathCount: deathCount,
+        bossPv: null
+    });
     gameOver();
 };
 
 function gameRun() {
     let level = [...selectQuestion(bosses[currentBossIndex].level)];
     bossPvMax = bosses[currentBossIndex].pv;
+    if (savedState.bossPv !== null) {
+        bosses[currentBossIndex].pv = savedState.bossPv;
+        savedState.bossPv = null;
+    }
     currentDb = level;
     updateHUD();
     displayQuestion(level);

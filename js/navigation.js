@@ -1,5 +1,6 @@
 
 function startGame() {
+    saveSystem.fullReset();
     const overlay = document.getElementById('transition-overlay');
     overlay.classList.add('active');
     setTimeout(() => {
@@ -31,6 +32,22 @@ function openLeaderboard() {
     }, 600);
 };
 
+function saveGame() {
+    if (typeof currentBossIndex === "undefined") return;
+    saveSystem.save({
+        currentBossIndex: currentBossIndex,
+        playerLives: playerLives,
+        score: score,
+        deathCount: deathCount,
+        bossPv: bosses[currentBossIndex].pv
+    });
+    const overlay = document.getElementById('transition-overlay');
+    overlay.classList.add('active');
+    setTimeout(() => {
+        window.location.href = '../index.html';
+    }, 600);
+};
+
 function quitGame() {
     const overlay = document.getElementById('transition-overlay');
     const isInGame = window.location.pathname.includes('/src/');
@@ -55,10 +72,8 @@ function quitGame() {
 }
 
 function closeGame() {
-    // Tentative de fermeture
     window.close();
 
-    // Fallback si le navigateur refuse
     setTimeout(() => {
         document.body.innerHTML = `
             <div style="

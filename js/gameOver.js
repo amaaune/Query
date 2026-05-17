@@ -1,6 +1,6 @@
-// Récupère les données stockées avant la redirection
-const deathCount = parseInt(localStorage.getItem("deathCount")) || 0;
-const finalScore = parseInt(localStorage.getItem("score")) || 0;
+const savedState = saveSystem.load();
+const deathCount = savedState.deathCount;
+const finalScore = savedState.score;
 
 // Affiche le message de mort selon le nombre de morts
 const msgIndex = Math.min(deathCount, death.length - 1);

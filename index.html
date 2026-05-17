@@ -16,8 +16,8 @@
             <button class="menu-btn" onclick="startGame()">
                 <img src="img/jouer.png" alt="Jouer">
             </button>
-            <button class="menu-btn" id="continue-btn" style="display:none" onclick="continueGame()">
-                <img src="../img/continuer.png" alt="Continuer">
+            <button class="menu-btn hidden-btn" id="continue-btn" onclick="continueGame()">
+                <img src="img/rejouer.png" alt="Continuer">
             </button>
             <button class="menu-btn" onclick="openLeaderboard()">
                 <img src="img/leaderB.png" alt="Leaderboard">
@@ -36,7 +36,6 @@
             <h2>Réglages</h2>
             <!-- Ton contenu ici -->
             <div id="settings-actions">
-                <button class="settings-action-btn" onclick="saveGame()">Sauvegarder</button>
                 <button class="settings-action-btn danger" onclick="quitGame()">Quitter</button>
                 <button class="settings-action-btn" onclick="document.getElementById('settings-modal').style.display='none'">Fermer</button>
             </div>
@@ -45,6 +44,7 @@
 
     <p id="footer">© Query — YNOV</p>
     <div id="transition-overlay"></div>
+    <script src="js/saveSystem.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/utilitys.js"></script>
 

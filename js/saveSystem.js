@@ -1,4 +1,4 @@
-const SAVE_KEY = "horrorGameSave";
+const SAVE_KEY = "querySave";
 
 const saveSystem = {
 
@@ -7,9 +7,11 @@ const saveSystem = {
         const data = localStorage.getItem(SAVE_KEY);
 
         return data ? JSON.parse(data) : {
-            currentRoom: 1,
-            hasBeatenBoss: false,
-            deathCount: 0
+            currentBossIndex: 0,
+            playerLives: 3,
+            score: 0,
+            deathCount: 0,
+            bossPv: null
         };
     },
 
@@ -22,9 +24,11 @@ const saveSystem = {
     resetOnDeath() {
         const data = this.load();
 
-        data.currentRoom = 1;
-        data.hasBeatenBoss = false;
+        data.currentBossIndex = 0;
+        data.playerLives = 3;
+        data.score = 0;
         data.deathCount += 1;
+        data.bossPv = null;
 
         this.save(data);
 

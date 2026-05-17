@@ -20,7 +20,7 @@ const questionsSimples = [
     { question: "Combien de pattes a une araignée ?", reponses: ["A. 6", "B. 8", "C. 10", "D. 12"], valid: 1 },
     { question: "Quel insecte produit du miel ?", reponses: ["A. La guêpe", "B. Le bourdon", "C. La fourmi", "D. L'abeille"], valid: 3 },
     { question: "Comment s'appelle le petit de la vache ?", reponses: ["A. Le poulain", "B. L'agneau", "C. Le veau", "D. Le porcelet"], valid: 2 },
-    { question: "Quel célèbre poisson clown cherche son fils dans l'océan ?", reponses: ["A. Dory", "B. Marlin", "C. Nemo", "D. Bubulle"], valid: 2 },
+    { question: "Quel célèbre poisson clown cherche son fils dans l'océan ?", reponses: ["A. Dory", "B. Marin", "C. Nemo", "D. Bubulle"], valid: 1 },
     { question: "Quel animal terrestre a le plus long cou ?", reponses: ["A. Le chameau", "B. L'autruche", "C. La girafe", "D. Le lama"], valid: 2 },
 
     // --- THEME 3 : Corps humain ---
