@@ -28,7 +28,7 @@ const saveSystem = {
 
         this.save(data);
 
-        return data.deathCount; // utile pour afficher un message de mort évolutif
+        return data.deathCount;
     },
 
     // Reset total (nouvelle partie)
