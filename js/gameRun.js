@@ -10,7 +10,13 @@ const bossPvFill = document.getElementById("boss-pv-fill");
 const bossImg = document.getElementById("boss-img");
 
 function displayGameWin() {
-    alert("!!!! VICTORY !!!!");
+    localStorage.setItem("queryStats", JSON.stringify({ score: score, deathCount: deathCount }));
+    saveSystem.fullReset();
+    const overlay = document.getElementById("transition-overlay");
+    overlay.classList.add("active");
+    setTimeout(() => {
+        window.location.href = "victory.html";
+    }, 600);
 };
 
 function updateHUD() {
@@ -35,13 +41,8 @@ function nextBoss() {
 
 function triggerGameOver() {
     deathCount++;
-    saveSystem.save({
-        currentBossIndex: 0,
-        playerLives: 3,
-        score: score,
-        deathCount: deathCount,
-        bossPv: null
-    });
+    saveSystem.fullReset(); // efface querySave → pas de bouton Continuer
+    localStorage.setItem("queryStats", JSON.stringify({ deathCount, score }));
     gameOver();
 };
 
