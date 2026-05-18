@@ -32,6 +32,14 @@ function openLeaderboard() {
     }, 600);
 };
 
+function backBtn() {
+    const overlay = document.getElementById('transition-overlay');
+    overlay.classList.add('active');
+    setTimeout(() => {
+        window.location.href = '/index.html';
+    }, 600);
+};
+
 function saveGame() {
     if (typeof currentBossIndex === "undefined") return;
     saveSystem.save({
