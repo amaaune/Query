@@ -77,46 +77,19 @@ function quitGame() {
     } else {
         closeGame();
     }
-}
+};
 
 function closeGame() {
-    window.close();
-
-    setTimeout(() => {
-        document.body.innerHTML = `
-            <div style="
-                display:flex;
-                flex-direction:column;
-                align-items:center;
-                justify-content:center;
-                height:100vh;
-                background:#000;
-                color:#c8a96e;
-                font-family:'Cinzel', serif;
-                text-align:center;
-                gap:24px;
-            ">
-                <h1 style="font-size:2rem; letter-spacing:0.2em;">
-                    QUERY
-                </h1>
-
-                <p style="opacity:0.7; letter-spacing:0.1em;">
-                    Vous pouvez maintenant fermer cet onglet.
-                </p>
-
-                <button onclick="window.close()" style="
-                    padding:12px 24px;
-                    background:#c8a96e;
-                    border:none;
-                    cursor:pointer;
-                    font-family:'Cinzel', serif;
-                ">
-                    Fermer
-                </button>
-            </div>
-        `;
-    }, 100);
-}
+    const overlay = document.getElementById('transition-overlay');
+    if (overlay) {
+        overlay.classList.add('active');
+        setTimeout(() => {
+            window.location.href = '/src/quit.html';
+        }, 600);
+    } else {
+        window.location.href = '/src/quit.html';
+    }
+};
 
 function handleContinueButton() {
     const continueBtn = document.getElementById("continue-btn");
