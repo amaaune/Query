@@ -25,6 +25,7 @@ document.getElementById("quit-btn").addEventListener("click", () => {
         window.location.href = "../index.html";
     }, 600);
 });
+
 document.getElementById("submit-score").addEventListener("click", () => {
     const pseudo = document.getElementById("pseudo-input").value.trim();
     if (pseudo.length >= 2) {

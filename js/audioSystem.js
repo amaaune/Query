@@ -1,8 +1,6 @@
 const audioManager = {
     sounds: {
-        ambient: new Audio("/sounds/ambient.mp3"),
-        // screamer: new Audio("/sounds/screamer.mp3"),
-        // click: new Audio("/sounds/click.wav")
+        ambient: new Audio("/sounds/ambient.mp3")
     },
 
     play(name) {

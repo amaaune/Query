@@ -88,7 +88,7 @@ h1 {
 /* Remplissage rouge */
 #boss-pv-fill {
     height: 100%;
-    width: 100%; /* mis à jour dynamiquement par le JS */
+    width: 100%;
     background: linear-gradient(90deg, #cc0000, #ff4444);
     border-radius: 6px;
     transition: width 0.4s ease;
@@ -144,7 +144,7 @@ h1 {
 /* Cœurs joueur */
 #player-pv {
     display: flex;
-    justify-content: space-between; /* cœurs à gauche, score à droite */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 0 4px;
@@ -417,7 +417,7 @@ h1 {
 #slider-cursor {
     position: absolute;
     top: 50%;
-    left: 40%; /* 40% = volume initial 0.4 */
+    left: 40%;
     transform: translate(-50%, -50%);
     width: 30px;
     height: 40px;

@@ -29,7 +29,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding-top: 20vh; /* pousse sous le VICTORY de l'image */
+    padding-top: 20vh;
 }
 #victory-title {
     font-size: 5rem;

@@ -23,10 +23,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;  /* centre verticalement */
-    min-height: 100vh;         /* prend toute la hauteur de l'écran */
+    justify-content: center;
+    min-height: 100vh;
     color: white;
-    padding: 40px 20px;        /* marge de sécurité sur petits écrans */
+    padding: 40px 20px;
     box-sizing: border-box;
 }
 
@@ -36,7 +36,7 @@ body {
     letter-spacing: 0.15em;
     color: #C8A028;
     text-shadow: 0 0 18px rgba(200, 140, 40, 0.7), 0 4px 12px rgba(0,0,0,0.8);
-    margin-top: 0;      /* supprime le margin-top fixe */
+    margin-top: 0;
     margin-bottom: 2rem;
 }
 
@@ -46,7 +46,7 @@ body {
     padding: 12px 24px;
     margin: 0;
     min-height: 400px;
-    width: min(420px, 90vw);   /* s'adapte aux petits écrans */
+    width: min(420px, 90vw);
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
@@ -87,7 +87,7 @@ body {
         transparent 12px
     );
     margin: 0 8px;
-    min-width: 0; /* empêche le filler de déborder */
+    min-width: 0;
 }
 
 /* Nom du joueur */
