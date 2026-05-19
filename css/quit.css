@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#quit-bg {
+    position: absolute;
+    inset: 0;
+    background: url('../img/quit.png') center center / cover no-repeat;
+    z-index: -1;
+}
+
+#quit-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: 72vh;
+}
+
+#quit-msg {
+    font-style: italic;
+    font-size: 1.08rem;
+    color: #f0d0ff;
+    letter-spacing: 0.15em;
+    text-shadow: 
+        0 0 10px rgba(180, 100, 255, 0.9),
+        0 0 20px rgba(180, 100, 255, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.8); /* ombre noire pour le contraste */
+}
+
+@keyframes victoryPulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.6); }
+    50%       { text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 80px rgba(255, 215, 0, 0.9); }
+}
+
+#menu-btn:hover img, #quit-btn:hover img {
+    filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.9));
+    transform: scale(1.05);
+}
+
+#transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}
