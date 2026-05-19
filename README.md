@@ -53,7 +53,6 @@ Query/
 │   ├── index.css             # Menu principal
 │   ├── game.css              # Page de jeu
 │   ├── gameOver.css          # Écran de mort
-│   ├── victory.css           # Écran de victoire
 │   ├── leaderboard.css       # Classement
 │   ├── popup.css             # Modale réglages
 │   ├── quit.css              # Styles écran de sortie
@@ -61,7 +60,6 @@ Query/
 ├── js/
 │   ├── audioSystem.js        # Gestion des sons
 │   ├── deathsMessages.js     # Banque des messages de mort
-│   ├── effectsSysyem.js      # Effets visuels (screamers)
 │   ├── gameOver.js           # Logique écran de mort
 │   ├── gameRun.js            # Chef d'orchestre du jeu
 │   ├── mobs.js               # Données des boss
