@@ -6,7 +6,6 @@ let deathCount = savedState.deathCount;
 let bossPvMax = 0;
 const bossName = document.getElementById("boss-name");
 const bossPv = document.getElementById("boss-pv");
-const playerPv = document.getElementById("player-pv");
 const bossPvFill = document.getElementById("boss-pv-fill");
 const bossImg = document.getElementById("boss-img");
 
