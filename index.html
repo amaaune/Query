@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="icon" href="img/fav.png">
+    <title>Query</title>
+</head>
+<body>
+
+    <div id="bg"></div>
+
+    <div id="home-container">
+        <div id="buttons">
+            <button class="menu-btn" onclick="startGame()">
+                <img src="img/nav/jouer.png" alt="Jouer">
+            </button>
+            <button class="menu-btn hidden-btn" id="continue-btn" onclick="continueGame()">
+                <img src="img/nav/continuer.png" alt="Continuer">
+            </button>
+            <button class="menu-btn" onclick="openLeaderboard()">
+                <img src="img/nav/leaderB.png" alt="Leaderboard">
+            </button>
+            <button class="menu-btn" onclick="quitGame()">
+                <img src="img/nav/quitter.png" alt="Quitter">
+            </button>
+        </div>
+    </div>
+
+    <button id="settings-btn" onclick="document.getElementById('settings-modal').style.display='flex'">
+        <img src="img/nav/reglages.png" alt="Réglages">
+    </button>
+    <div id="settings-modal" style="display:none">
+        <div id="settings-content">
+            <h2>Réglages</h2>
+            <div id="settings-actions">
+                <button class="settings-action-btn danger" onclick="quitGame()">Quitter</button>
+                <button class="settings-action-btn" onclick="document.getElementById('settings-modal').style.display='none'">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <p id="footer">© Query — YNOV</p>
+    <div id="transition-overlay"></div>
+    <script src="js/saveSystem.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/utilitys.js"></script>
+
+</body>
+</html>

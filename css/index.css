@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Cinzel', serif;
+    background: #000;
+    cursor: default;
+}
+
+/* ── BACKGROUND ── */
+#bg {
+    position: absolute;
+    inset: 0;
+    background: url('../img/bg/background2.png') center center / cover no-repeat;
+    z-index: 0;
+}
+
+/* vignette */
+#bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+/* ── LAYOUT ── */
+#home-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+/* ── LOGO ── */
+#logo {
+    width: min(520px, 75vw);
+    filter: drop-shadow(0 0 30px rgba(180, 100, 20, 0.7))
+            drop-shadow(0 0 80px rgba(180, 100, 20, 0.3));
+    animation: logoFloat 4s ease-in-out infinite, logoIn 1.2s cubic-bezier(0.16,1,0.3,1) both;
+    margin-bottom: 12px;
+}
+
+/* ── SUBTITLE ── */
+#subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s ease forwards;
+    margin-bottom: 56px;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── BUTTONS ── */
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    margin-top: 350px;
+}
+
+.menu-btn {
+    position: relative;
+    width: 420px;
+    height: 94px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+}
+
+.hidden-btn {
+    display: none !important;
+}
+
+.menu-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.2s ease, transform 0.2s ease;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+}
+
+.menu-btn:hover img {
+    filter: drop-shadow(0 0 18px rgba(200, 140, 40, 0.9))
+            drop-shadow(0 4px 12px rgba(0,0,0,0.6))
+            brightness(1.15);
+    transform: scale(1.07);
+}
+
+.menu-btn:active img {
+    transform: scale(0.97);
+}
+
+#settings-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#settings-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+#settings-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#settings-content {
+    background: #1a1a1a;
+    border: 1px solid #8B6914;
+    padding: 30px;
+    border-radius: 8px;
+    min-width: 300px;
+    color: white;
+}
+
+/* ── FOOTER ── */
+#footer {
+    position: absolute;
+    bottom: 24px;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: rgba(200, 169, 110, 0.4);
+    text-transform: uppercase;
+    animation: fadeUp 1s 1.6s ease forwards;
+    opacity: 0;
+}
+
+/* ── FADE TO GAME ── */
+#transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+#transition-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}

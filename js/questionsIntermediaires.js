@@ -1,0 +1,121 @@
+const questionsIntermediaires = [
+    // --- THEME 1 : Géographie ---
+    { question: "Quelle est la capitale du Canada ?", reponses: ["A. Toronto", "B. Montréal", "C. Ottawa", "D. Vancouver"], valid: 2 },
+    { question: "Quel fleuve mythique traverse l'Égypte ?", reponses: ["A. L'Euphrate", "B. Le Nil", "C. Le Tigre", "D. Le Gange"], valid: 1 },
+    { question: "Quel est le plus grand pays d'Amérique du Sud ?", reponses: ["A. L'Argentine", "B. Le Pérou", "C. La Colombie", "D. Le Brésil"], valid: 3 },
+    { question: "Quel est le plus long fleuve de France ?", reponses: ["A. La Seine", "B. Le Rhône", "C. La Loire", "D. La Garonne"], valid: 2 },
+    { question: "Quelle est la monnaie officielle du Japon ?", reponses: ["A. Le Won", "B. Le Yen", "C. Le Yuan", "D. Le Baht"], valid: 1 },
+    { question: "Quel océan borde la côte Est des États-Unis ?", reponses: ["A. Le Pacifique", "B. L'Arctique", "C. L'Indien", "D. L'Atlantique"], valid: 3 },
+    { question: "Quelle est la capitale de l'Australie ?", reponses: ["A. Sydney", "B. Melbourne", "C. Canberra", "D. Brisbane"], valid: 2 },
+    { question: "Dans quel pays se trouve le célèbre Taj Mahal ?", reponses: ["A. Pakistan", "B. Inde", "C. Népal", "D. Bangladesh"], valid: 1 },
+    { question: "Comment s'appelle le bras de mer entre la France et l'Angleterre ?", reponses: ["A. La Manche", "B. La mer du Nord", "C. La mer d'Iroise", "D. La mer Celtique"], valid: 0 },
+    { question: "Quelle est la capitale de la Turquie ?", reponses: ["A. Istanbul", "B. Antalya", "C. Izmir", "D. Ankara"], valid: 3 },
+
+    // --- THEME 2 : Animaux ---
+    { question: "Quel est l'animal terrestre le plus rapide au monde ?", reponses: ["A. Le lion", "B. Le guépard", "C. L'antilope", "D. Le léopard"], valid: 1 },
+    { question: "Quel est le seul mammifère capable de voler activement ?", reponses: ["A. L'écureuil volant", "B. Le pélican", "C. La chauve-souris", "D. Le lémurien"], valid: 2 },
+    { question: "Quel grand oiseau a un œil plus gros que son propre cerveau ?", reponses: ["A. L'aigle", "B. L'autruche", "C. Le vautour", "D. L'albatros"], valid: 1 },
+    { question: "Comment s'appelle le petit de la chèvre ?", reponses: ["A. Le faon", "B. Le chevreau", "C. L'agneau", "D. Le marcassin"], valid: 1 },
+    { question: "Combien de cœurs possède une pieuvre ?", reponses: ["A. 1", "B. 2", "C. 3", "D. 4"], valid: 2 },
+    { question: "Lequel de ces animaux est un marsupial ?", reponses: ["A. L'ornithorynque", "B. Le paresseux", "C. Le kangourou", "D. Le tatou"], valid: 2 },
+    { question: "Quel est le plus grand primate vivant aujourd'hui ?", reponses: ["A. Le chimpanzé", "B. L'orang-outan", "C. Le babouin", "D. Le gorille"], valid: 3 },
+    { question: "Comment appelle-t-on la femelle du sanglier ?", reponses: ["A. La laie", "B. La truie", "C. La hase", "D. La chevrette"], valid: 0 },
+    { question: "Quel animal produit la laine appelée mohair ?", reponses: ["A. Le mouton mérinos", "B. La chèvre angora", "C. Le lama", "D. L'alpaga"], valid: 1 },
+    { question: "Quel animal est l'emblème de l'association de protection WWF ?", reponses: ["A. L'ours polaire", "B. Le tigre", "C. Le koala", "D. Le panda géant"], valid: 3 },
+
+    // --- THEME 3 : Corps humain ---
+    { question: "Quel est l'os le plus long du corps humain ?", reponses: ["A. Le tibia", "B. Le fémur", "C. L'humérus", "D. Le péroné"], valid: 1 },
+    { question: "De combien de cavités est composé un cœur humain normal ?", reponses: ["A. 2", "B. 3", "C. 4", "D. 5"], valid: 2 },
+    { question: "Quelle glande, située derrière l'estomac, produit l'insuline ?", reponses: ["A. Le foie", "B. La thyroïde", "C. Le pancréas", "D. La vésicule"], valid: 2 },
+    { question: "Quel pigment est responsable de la couleur de la peau et des cheveux ?", reponses: ["A. La kératine", "B. La mélanine", "C. Le collagène", "D. Le carotène"], valid: 1 },
+    { question: "Où se trouve l'étrier, le plus petit os du corps humain ?", reponses: ["A. Dans le nez", "B. Dans la main", "C. Dans le pied", "D. Dans l'oreille"], valid: 3 },
+    { question: "Combien de chromosomes compte une cellule humaine classique ?", reponses: ["A. 23", "B. 42", "C. 46", "D. 48"], valid: 2 },
+    { question: "Quel type de vaisseau ramène le sang pauvre en oxygène vers le cœur ?", reponses: ["A. Une artère", "B. Un capillaire", "C. Une veine", "D. Une aorte"], valid: 2 },
+    { question: "Comment s'appelle la protéine rouge qui transporte l'oxygène dans le sang ?", reponses: ["A. La globuline", "B. L'hémoglobine", "C. La plaquette", "D. Le plasma"], valid: 1 },
+    { question: "Où se situe exactement le tibia ?", reponses: ["A. Dans le bras", "B. Dans la cuisse", "C. Dans l'avant-bras", "D. Dans la jambe"], valid: 3 },
+    { question: "Quelle vitamine notre corps synthétise-t-il grâce aux rayons du soleil ?", reponses: ["A. La vitamine A", "B. La vitamine C", "C. La vitamine D", "D. La vitamine B12"], valid: 2 },
+
+    // --- THEME 4 : Mathématiques et Logique ---
+    { question: "Quelle est la racine carrée de 144 ?", reponses: ["A. 10", "B. 12", "C. 14", "D. 16"], valid: 1 },
+    { question: "Comment appelle-t-on un polygone qui possède 6 côtés ?", reponses: ["A. Un pentagone", "B. Un octogone", "C. Un heptagone", "D. Un hexagone"], valid: 3 },
+    { question: "Combien de secondes y a-t-il exactement dans une heure ?", reponses: ["A. 600", "B. 1200", "C. 3600", "D. 6000"], valid: 2 },
+    { question: "Quel est le prochain nombre premier après le chiffre 7 ?", reponses: ["A. 8", "B. 9", "C. 11", "D. 13"], valid: 2 },
+    { question: "Un jeu coûte 100€. S'il est soldé à -20%, quel est son nouveau prix ?", reponses: ["A. 20€", "B. 80€", "C. 120€", "D. 90€"], valid: 1 },
+    { question: "En mathématiques, comment appelle-t-on le résultat d'une multiplication ?", reponses: ["A. La somme", "B. Le quotient", "C. La différence", "D. Le produit"], valid: 3 },
+    { question: "Que représente la lettre 'L' dans les chiffres romains ?", reponses: ["A. 10", "B. 50", "C. 100", "D. 500"], valid: 1 },
+    { question: "Combien de degrés mesure un angle droit ?", reponses: ["A. 45°", "B. 90°", "C. 180°", "D. 360°"], valid: 1 },
+    { question: "Quelle est la valeur de 'Pi' arrondie à deux décimales ?", reponses: ["A. 3,12", "B. 3,14", "C. 3,16", "D. 3,18"], valid: 1 },
+    { question: "Combien d'années compte un millénaire ?", reponses: ["A. 10", "B. 100", "C. 1000", "D. 10000"], valid: 2 },
+
+    // --- THEME 5 : Sciences et Nature ---
+    { question: "Quel est le gaz le plus abondant dans l'atmosphère terrestre ?", reponses: ["A. L'oxygène", "B. Le dioxyde de carbone", "C. L'azote", "D. L'hydrogène"], valid: 2 },
+    { question: "À quelle température l'eau bout-elle au niveau de la mer ?", reponses: ["A. 50°C", "B. 90°C", "C. 100°C", "D. 120°C"], valid: 2 },
+    { question: "Quel métal a la particularité d'être liquide à température ambiante ?", reponses: ["A. Le plomb", "B. L'aluminium", "C. Le mercure", "D. Le cuivre"], valid: 2 },
+    { question: "Par quel processus les plantes transforment-elles la lumière en énergie ?", reponses: ["A. La mitose", "B. La photosynthèse", "C. L'oxydation", "D. La fermentation"], valid: 1 },
+    { question: "Quelle pierre précieuse est composée uniquement d'atomes de carbone ?", reponses: ["A. Le rubis", "B. L'émeraude", "C. Le saphir", "D. Le diamant"], valid: 3 },
+    { question: "Quelle échelle mesure la puissance d'un tremblement de terre ?", reponses: ["A. L'échelle de Beaufort", "B. L'échelle de Fahrenheit", "C. L'échelle de Richter", "D. L'échelle de Mohs"], valid: 2 },
+    { question: "Quelle est la charge électrique d'un neutron ?", reponses: ["A. Positive", "B. Négative", "C. Neutre", "D. Variable"], valid: 2 },
+    { question: "Qui a formulé la célèbre théorie de la relativité restreinte ?", reponses: ["A. Isaac Newton", "B. Albert Einstein", "C. Nikola Tesla", "D. Galileo Galilei"], valid: 1 },
+    { question: "Quel est le symbole chimique de l'Or dans le tableau périodique ?", reponses: ["A. Or", "B. Ag", "C. Au", "D. Cu"], valid: 2 },
+    { question: "À combien estime-t-on la vitesse de la lumière dans le vide ?", reponses: ["A. 300 000 km/s", "B. 150 000 km/s", "C. 1 million km/s", "D. 3 000 km/s"], valid: 0 },
+
+    // --- THEME 6 : Gastronomie ---
+    { question: "Quel est l'ingrédient de base du houmous ?", reponses: ["A. L'aubergine", "B. Les pois chiches", "C. La tomate", "D. La courgette"], valid: 1 },
+    { question: "Quel fromage est traditionnellement utilisé pour préparer un Tiramisu ?", reponses: ["A. La Ricotta", "B. Le Gorgonzola", "C. La Mozzarella", "D. Le Mascarpone"], valid: 3 },
+    { question: "De quel pays est originaire le plat appelé 'Paella' ?", reponses: ["A. L'Italie", "B. Le Portugal", "C. L'Espagne", "D. Le Mexique"], valid: 2 },
+    { question: "Qu'est-ce que le tofu, très utilisé dans la cuisine asiatique ?", reponses: ["A. De la pâte de riz", "B. Du lait de coco", "C. De la pâte de soja", "D. De l'algue pressée"], valid: 2 },
+    { question: "Quelle céréale est fermentée pour produire le saké japonais ?", reponses: ["A. Le blé", "B. Le riz", "C. L'orge", "D. Le maïs"], valid: 1 },
+    { question: "Dans quel pays européen a réellement été inventé le croissant ?", reponses: ["A. La France", "B. L'Italie", "C. La Suisse", "D. L'Autriche"], valid: 3 },
+    { question: "Quel fruit aromatise la célèbre liqueur italienne 'Limoncello' ?", reponses: ["A. L'orange", "B. Le pamplemousse", "C. Le citron", "D. La mandarine"], valid: 2 },
+    { question: "Quel champignon rare est souvent surnommé le 'diamant noir' de la cuisine ?", reponses: ["A. Le cèpe", "B. La morille", "C. La girolle", "D. La truffe"], valid: 3 },
+    { question: "Quelle épice donne sa couleur jaune si caractéristique au curry ?", reponses: ["A. Le safran", "B. Le paprika", "C. Le curcuma", "D. Le cumin"], valid: 2 },
+    { question: "Quel alcool est indispensable pour réussir de vraies crêpes Suzette ?", reponses: ["A. Le rhum", "B. Le Grand Marnier", "C. Le Calvados", "D. Le Kirsch"], valid: 1 },
+
+    // --- THEME 7 : Ciel et Espace ---
+    { question: "Quelle est la plus grande planète de notre système solaire ?", reponses: ["A. Saturne", "B. Uranus", "C. Neptune", "D. Jupiter"], valid: 3 },
+    { question: "Qui a été le tout premier homme à marcher sur la Lune ?", reponses: ["A. Buzz Aldrin", "B. Youri Gagarine", "C. Neil Armstrong", "D. Thomas Pesquet"], valid: 2 },
+    { question: "Comment s'appelle la galaxie dans laquelle se trouve notre système solaire ?", reponses: ["A. Andromède", "B. La Voie lactée", "C. Le Grand Nuage de Magellan", "D. Centaurus A"], valid: 1 },
+    { question: "Quelle est la planète la plus proche du Soleil ?", reponses: ["A. Vénus", "B. Mercure", "C. Mars", "D. La Terre"], valid: 1 },
+    { question: "Qu'est-ce qu'une exoplanète ?", reponses: ["A. Une planète naine", "B. Une planète morte", "C. Une planète hors de notre système", "D. Une planète gazeuse"], valid: 2 },
+    { question: "Quelle étoile, toujours visible dans l'hémisphère nord, indique le Nord ?", reponses: ["A. Sirius", "B. Véga", "C. Bételgeuse", "D. L'Étoile Polaire"], valid: 3 },
+    { question: "Quel était le nom du tout premier satellite artificiel envoyé dans l'espace en 1957 ?", reponses: ["A. Apollo 1", "B. Voyager", "C. Spoutnik 1", "D. Hubble"], valid: 2 },
+    { question: "De quelle couleur la planète Neptune apparaît-elle au télescope ?", reponses: ["A. Rouge", "B. Verte", "C. Jaune", "D. Bleue"], valid: 3 },
+    { question: "Que trouve-t-on généralement au centre des grandes galaxies ?", reponses: ["A. Un trou noir supermassif", "B. Une étoile géante", "C. Un vide absolu", "D. Une nébuleuse"], valid: 0 },
+    { question: "Quel est l'acronyme de l'Agence Spatiale Européenne ?", reponses: ["A. NASA", "B. ESA", "C. CNES", "D. SpaceX"], valid: 1 },
+
+    // --- THEME 8 : Culture, Histoire et Arts ---
+    { question: "En quelle année a éclaté la Première Guerre mondiale ?", reponses: ["A. 1912", "B. 1914", "C. 1918", "D. 1939"], valid: 1 },
+    { question: "Quel célèbre écrivain français a rédigé 'Les Misérables' ?", reponses: ["A. Émile Zola", "B. Molière", "C. Victor Hugo", "D. Marcel Proust"], valid: 2 },
+    { question: "Quelle ville romaine a été ensevelie par l'éruption du Vésuve en 79 apr. J.-C. ?", reponses: ["A. Rome", "B. Naples", "C. Herculanum", "D. Pompéi"], valid: 3 },
+    { question: "Qui a passé 4 ans à peindre le plafond de la chapelle Sixtine ?", reponses: ["A. Léonard de Vinci", "B. Michel-Ange", "C. Raphaël", "D. Donatello"], valid: 1 },
+    { question: "Dans la mythologie grecque, qui est le dieu de la mer et des océans ?", reponses: ["A. Zeus", "B. Hadès", "C. Arès", "D. Poséidon"], valid: 3 },
+    { question: "Quelle actrice britannique a incarné Hermione Granger au cinéma ?", reponses: ["A. Natalie Portman", "B. Keira Knightley", "C. Emma Watson", "D. Scarlett Johansson"], valid: 2 },
+    { question: "Quelle reine de France a été guillotinée à Paris en 1793 ?", reponses: ["A. Catherine de Médicis", "B. Marie-Antoinette", "C. Anne d'Autriche", "D. Joséphine de Beauharnais"], valid: 1 },
+    { question: "À quel philosophe français doit-on la célèbre phrase 'Je pense, donc je suis' ?", reponses: ["A. René Descartes", "B. Voltaire", "C. Jean-Jacques Rousseau", "D. Montesquieu"], valid: 0 },
+    { question: "Qui a réalisé le film 'Titanic' sorti en 1997 ?", reponses: ["A. Steven Spielberg", "B. Christopher Nolan", "C. James Cameron", "D. Ridley Scott"], valid: 2 },
+    { question: "Quelle ville était la capitale de l'Empire romain d'Orient ?", reponses: ["A. Alexandrie", "B. Athènes", "C. Jérusalem", "D. Constantinople"], valid: 3 },
+
+    // --- THEME 9 : Informatique et Numérique (Spécial Ynov !) ---
+    { question: "Que signifie la lettre 'W' au début de toutes les adresses web (WWW) ?", reponses: ["A. Web", "B. World", "C. Wide", "D. Window"], valid: 1 },
+    { question: "Quel est le langage de base utilisé pour structurer une page web ?", reponses: ["A. Python", "B. C++", "C. Java", "D. HTML"], valid: 3 },
+    { question: "Qui est le célèbre fondateur de l'entreprise américaine Microsoft ?", reponses: ["A. Steve Jobs", "B. Mark Zuckerberg", "C. Bill Gates", "D. Elon Musk"], valid: 2 },
+    { question: "Comment s'appelle la première et la plus célèbre des cryptomonnaies ?", reponses: ["A. L'Ethereum", "B. Le Bitcoin", "C. Le Dogecoin", "D. Le Ripple"], valid: 1 },
+    { question: "Quel raccourci clavier permet de 'Coller' un élément sous Windows ?", reponses: ["A. Ctrl + C", "B. Ctrl + X", "C. Ctrl + V", "D. Ctrl + Z"], valid: 2 },
+    { question: "Comment appelle-t-on le système de numération utilisant uniquement des 0 et des 1 ?", reponses: ["A. Le système décimal", "B. Le système hexadécimal", "C. Le système binaire", "D. Le système octal"], valid: 2 },
+    { question: "Quel composant est considéré comme le véritable 'cerveau' de l'ordinateur ?", reponses: ["A. La carte mère", "B. Le disque dur", "C. La carte graphique", "D. Le processeur (CPU)"], valid: 3 },
+    { question: "Que signifie l'acronyme informatique 'RAM' ?", reponses: ["A. Read Access Memory", "B. Random Access Memory", "C. Run All Macros", "D. Reboot And Move"], valid: 1 },
+    { question: "Quelle grande entreprise a développé le système d'exploitation mobile Android ?", reponses: ["A. Apple", "B. Samsung", "C. Microsoft", "D. Google"], valid: 3 },
+    { question: "En quelle année Steve Jobs a-t-il dévoilé le tout premier iPhone ?", reponses: ["A. 2005", "B. 2007", "C. 2009", "D. 2011"], valid: 1 },
+
+    // --- THEME 10 : Sports et Loisirs ---
+    { question: "Combien de joueurs composent une équipe de rugby à XV sur le terrain ?", reponses: ["A. 11", "B. 13", "C. 15", "D. 17"], valid: 2 },
+    { question: "Quel pays a remporté la Coupe du Monde masculine de football en 2018 ?", reponses: ["A. L'Allemagne", "B. L'Argentine", "C. La Croatie", "D. La France"], valid: 3 },
+    { question: "Dans quel sport de précision utilise-t-on un 'club' et un 'tee' ?", reponses: ["A. Le polo", "B. Le golf", "C. Le cricket", "D. Le hockey sur gazon"], valid: 1 },
+    { question: "Quelle est la distance officielle exacte d'un marathon ?", reponses: ["A. 40 km", "B. 42,195 km", "C. 45 km", "D. 50 km"], valid: 1 },
+    { question: "Combien de manches (sets) maximum peut compter un match masculin en tournoi du Grand Chelem de tennis ?", reponses: ["A. 3", "B. 4", "C. 5", "D. 6"], valid: 2 },
+    { question: "Quelle est la couleur de la ceinture la plus élevée dans la progression classique au judo/karaté ?", reponses: ["A. Marron", "B. Noire", "C. Rouge", "D. Blanche et rouge"], valid: 1 }, // Note: En occident la noire est souvent vue comme le but ultime, bien qu'il y ait des dan après.
+    { question: "Quel sport nord-américain oppose une équipe de lanceurs à une équipe de batteurs ?", reponses: ["A. Le football américain", "B. Le baseball", "C. Le hockey", "D. Le basketball"], valid: 1 },
+    { question: "Quelle est la durée d'un combat de boxe professionnel masculin de championnat (en nombre de rounds) ?", reponses: ["A. 10", "B. 12", "C. 15", "D. 20"], valid: 1 },
+    { question: "Sur quel équipement glissent les joueurs de hockey sur glace ?", reponses: ["A. Des rollers", "B. Des skis courts", "C. Des patins à lames", "D. Des crampons en fer"], valid: 2 },
+    { question: "Dans quel sport de combat le Français Teddy Riner s'est-il illustré avec de multiples médailles d'or ?", reponses: ["A. La lutte", "B. Le karaté", "C. La boxe anglaise", "D. Le judo"], valid: 3 }
+];

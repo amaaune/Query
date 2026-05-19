@@ -1,0 +1,210 @@
+/* ── BACKGROUND ── */
+#bg {
+    position: absolute;
+    inset: 0;
+    background: url('../img/bg/DeadBG.png') center center / cover no-repeat;
+    z-index: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* ── GAME CONTAINER ── */
+#game-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: white;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* ── TITLE ── */
+#game-container h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.15em;
+    color: #C8A028;
+    text-shadow: 0 0 18px rgba(200, 140, 40, 0.7), 0 4px 12px rgba(0,0,0,0.8);
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* ── LEADERBOARD LIST ── */
+#game-container ol {
+    list-style: none;
+    padding: 12px 24px;
+    margin: 0;
+    min-height: 400px;
+    width: min(420px, 90vw);
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 10px;
+    border: 1px solid rgba(200, 140, 40, 0.15);
+}
+
+#game-container ol li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 4px;
+    border-bottom: 1px solid rgba(200, 140, 40, 0.2);
+    font-size: 1.1rem;
+}
+
+#game-container ol li:last-child {
+    border-bottom: none;
+}
+
+/* Numéro de rang */
+.lb-rank {
+    font-size: 0.95rem;
+    font-weight: bold;
+    min-width: 24px;
+    color: rgba(200, 140, 40, 0.8);
+}
+
+/* Tiret filler */
+.lb-filler {
+    flex: 1;
+    height: 2px;
+    background-image: repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.4) 0px,
+        rgba(255, 255, 255, 0.4) 6px,
+        transparent 6px,
+        transparent 12px
+    );
+    margin: 0 8px;
+    min-width: 0;
+}
+
+/* Nom du joueur */
+.lb-name {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Score */
+.lb-score {
+    font-size: 0.95rem;
+    color: rgba(200, 140, 40, 0.9);
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* ── SETTINGS BUTTON ── */
+#settings-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#settings-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+/* ── SETTINGS MODAL ── */
+#settings-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#settings-content {
+    background: #1a1a1a;
+    border: 1px solid #8B6914;
+    padding: 30px;
+    border-radius: 8px;
+    min-width: 300px;
+    color: white;
+}
+
+#settings-content h2 {
+    margin-top: 0;
+    color: #C8A028;
+    letter-spacing: 0.1em;
+}
+
+#settings-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.settings-action-btn {
+    padding: 10px 20px;
+    background: none;
+    border: 1px solid #8B6914;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.settings-action-btn:hover {
+    background: rgba(200, 140, 40, 0.15);
+    transform: scale(1.02);
+}
+
+.settings-action-btn:active {
+    transform: scale(0.97);
+}
+
+.settings-action-btn.danger {
+    border-color: #8B1414;
+    color: #e57373;
+}
+
+.settings-action-btn.danger:hover {
+    background: rgba(200, 40, 40, 0.15);
+}
+
+/* ── BACK BUTTON ── */
+#back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#back-btn img {
+    width: 50px;
+    height: 50px;
+}
+
+/* ── TRANSITION OVERLAY ── */
+#transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}

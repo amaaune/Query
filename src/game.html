@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/game.css">
+    <link rel="stylesheet" href="../css/popup.css">
+    <link rel="icon" href="../img/fav.png">
+    <title>Query</title>
+</head>
+<body>
+
+    <div id="game-container">
+        
+        <div id="boss-name"></div>
+        <div id="boss-pv-bar">
+            <div id="boss-pv-fill"></div>
+            <div id="boss-pv"></div>
+        </div>
+        <img id="boss-img" src="" alt="BossImg">
+        
+
+        <div id="player-pv">
+            <div id="hearts"></div>
+            <div id="player-score"></div>
+        </div>
+        
+        <div id="question-text"></div>
+
+        <form id="cache-ans">
+            <input type="text" id="cache-input" placeholder="Ta réponse...">
+            <button type="submit" style="display:none"></button>
+        </form>
+        <div id="mode-btns">
+            <button id="X4-ans">X4</button>
+            <button id="X2-ans">X2</button>
+        </div>
+        <div id="answers-container"></div>
+    </div>
+
+
+    <button id="settings-btn" onclick="document.getElementById('settings-modal').style.display='flex'">
+        <img src="../img/nav/reglages.png" alt="Réglages">
+    </button>
+    <div id="settings-modal" style="display:none">
+        <div id="settings-content">
+            <h2>Réglages</h2>
+             <div id="sound-control">
+                <img src="../img/sound/sound.png" alt="Son" id="sound-icon">
+                <div id="slider-track">
+                    <img src="../img/sound/fond.png" alt="" id="slider-bg">
+                    <img src="../img/sound/cursor.png" alt="" id="slider-cursor">
+                </div>
+                <span id="volume-value">40%</span>
+            </div>
+            <div id="settings-actions">
+                <button class="settings-action-btn" onclick="saveGame()">Sauvegarder</button>
+                <button class="settings-action-btn danger" onclick="quitGame()">Quitter</button>
+                <button class="settings-action-btn" onclick="document.getElementById('settings-modal').style.display='none'">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="transition-overlay"></div>
+    <script src="../js/audioSystem.js"></script>
+    <script src="../js/saveSystem.js"></script>
+    <script src="../js/mobs.js"></script>
+    <script src="../js/questionsSimples.js"></script>
+    <script src="../js/questionsIntermediaires.js"></script>
+    <script src="../js/questionsAvancee.js"></script>
+    <script src="../js/deathsMessages.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/utilitys.js"></script>
+    <script src="../js/qcm.js"></script>
+    <script src="../js/gameRun.js"></script>
+
+</body>
+</html>
