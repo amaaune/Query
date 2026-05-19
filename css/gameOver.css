@@ -2,7 +2,7 @@
 #bg {
     position: absolute;
     inset: 0;
-    background: url('../img/DeadBG.png') center center / cover no-repeat;
+    background: url('../img/bg/DeadBG.png') center center / cover no-repeat;
     z-index: 0;
 }
 
@@ -137,6 +137,11 @@ body {
     object-fit: contain;
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
     transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+#replay-btn img {
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 #replay-btn:hover img, #quit-btn:hover img {

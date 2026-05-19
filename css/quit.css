@@ -18,7 +18,7 @@ body {
 #quit-bg {
     position: absolute;
     inset: 0;
-    background: url('../img/quit.png') center center / cover no-repeat;
+    background: url('../img/bg/quit.png') center center / cover no-repeat;
     z-index: -1;
 }
 

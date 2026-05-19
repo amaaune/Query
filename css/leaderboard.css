@@ -2,7 +2,7 @@
 #bg {
     position: absolute;
     inset: 0;
-    background: url('../img/DeadBG.png') center center / cover no-repeat;
+    background: url('../img/bg/DeadBG.png') center center / cover no-repeat;
     z-index: 0;
 }
 
