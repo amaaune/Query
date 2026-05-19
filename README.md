@@ -44,41 +44,67 @@ Query est un jeu de QCM progressif à ambiance horrifique. Le joueur affronte 4 
 
 ```
 Query/
-├── index.html              # Menu principal
-├── server.js               # Serveur Node.js
+├── index.html                # Menu principal
+├── server.js                 # Serveur Node.js
 ├── package.json
 ├── sounds/
-│   └── ambient.mp3         # Musique d'ambiance
+│   └── ambient.mp3           # Musique d'ambiance
 ├── css/
-│   ├── index.css           # Menu principal
-│   ├── game.css            # Page de jeu
-│   ├── gameOver.css        # Écran de mort
-│   ├── victory.css         # Écran de victoire
-│   ├── leaderboard.css     # Classement
-│   └── popup.css           # Modale réglages (global)
+│   ├── index.css             # Menu principal
+│   ├── game.css              # Page de jeu
+│   ├── gameOver.css          # Écran de mort
+│   ├── victory.css           # Écran de victoire
+│   ├── leaderboard.css       # Classement
+│   ├── popup.css             # Modale réglages
+│   ├── quit.css              # Styles écran de sortie
+│   └── victory.css           # Styles écran de victoire
 ├── js/
-│   ├── audioSystem.js      # Gestion des sons
-│   ├── deathsMessages.js   # Banque des messages de mort
-│   ├── effectsSysyem.js    # Effets visuels (screamers)
-│   ├── gameOver.js         # Logique écran de mort
-│   ├── gameRun.js          # Chef d'orchestre du jeu
-│   ├── mobs.js             # Données des boss
-│   ├── navigation.js       # Fonctions de navigation/transitions
-│   ├── qcm.js              # Moteur de questions et réponses
-│   ├── questionsAvancee.js # Banque questions avancées
+│   ├── audioSystem.js        # Gestion des sons
+│   ├── deathsMessages.js     # Banque des messages de mort
+│   ├── effectsSysyem.js      # Effets visuels (screamers)
+│   ├── gameOver.js           # Logique écran de mort
+│   ├── gameRun.js            # Chef d'orchestre du jeu
+│   ├── mobs.js               # Données des boss
+│   ├── navigation.js         # Fonctions de navigation/transitions
+│   ├── qcm.js                # Moteur de questions et réponses
+│   ├── questionsAvancee.js   # Banque questions avancées
 │   ├── questionsIntermediaires.js
 │   ├── questionsSimples.js
-│   ├── saveSystem.js       # Système de sauvegarde (localStorage)
-│   ├── utilitys.js         # Leaderboard
-│   └── victory.js          # Logique écran victoire
+│   ├── saveSystem.js         # Système de sauvegarde (localStorage)
+│   ├── leaderboard.js        # Leaderboard
+│   └── victory.js            # Logique écran victoire
 ├── img/
-│   ├── mobs/               # Images des boss (junior/senior/cto/founder)
-│   └── ...                 # Assets UI (boutons, fonds, favicon)
-└── src/
-    ├── game.html           # Page de jeu principale
-    ├── gameOver.html       # Écran de mort
-    ├── leaderboard.html    # Classement
-    └── victory.html        # Écran de victoire
+│   ├── bg/                   # Dossier de tri : Fonds d'écran
+│   │   ├── background.png
+│   │   ├── background2.png
+│   │   ├── DeadBG.png
+│   │   ├── quit.png
+│   │   └── victory.png
+│   ├── mobs/                 # Dossier de tri : Boss
+│   │   ├── cto.jpg
+│   │   ├── founder.jpg
+│   │   ├── junior.jpg
+│   │   └── senior.jpg
+│   ├── nav/                  # Dossier de tri : Boutons et icônes
+│   │   ├── back.png
+│   │   ├── continuer.png
+│   │   ├── jouer.png
+│   │   ├── leaderB.png
+│   │   ├── menu_principal.png
+│   │   ├── quitter.png
+│   │   ├── reglages.png
+│   │   └── rejouer.png
+│   ├── sound/                # Dossier de tri : Icônes audio
+│   │   ├── cursor.png
+│   │   ├── fond.png
+│   │   └── sound.png
+│   └── fav.png               # Favicon
+src/
+    ├── game.html             # Page de jeu principale
+    ├── gameOver.html         # Écran de mort
+    ├── leaderboard.html      # Classement
+    ├── quit.html             # Page de confirmation de sortie
+    └── victory.html          # Écran de victoire
 ```
 
 ---
