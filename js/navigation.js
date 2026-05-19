@@ -143,7 +143,61 @@ function animateMenuButtons() {
     });
 };
 
+
+function initVolumeSlider() {
+    const track = document.getElementById("slider-track");
+    if (!track) return;
+
+    const cursor = document.getElementById("slider-cursor");
+    const valueLabel = document.getElementById("volume-value");
+    let isDragging = false;
+
+    function updateVolume(e) {
+    const rect = track.getBoundingClientRect();
+
+    // marge correspondant aux bordures décoratives
+    const padding = 28;
+
+    // largeur réellement utilisable
+    const usableWidth = rect.width - (padding * 2);
+
+    // position souris relative à la zone utile
+    let x = e.clientX - rect.left - padding;
+
+    // clamp
+    x = Math.max(0, Math.min(usableWidth, x));
+
+    // ratio réel
+    const ratio = x / usableWidth;
+
+    // position du curseur
+    cursor.style.left = (padding + x) + "px";
+
+    // texte
+    valueLabel.innerHTML = Math.round(ratio * 100) + "%";
+
+    // volume
+    if (audioManager.sounds.ambient) {
+        audioManager.sounds.ambient.volume = ratio;
+    }
+}
+
+    track.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        updateVolume(e);
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (isDragging) updateVolume(e);
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+    });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     handleContinueButton();
     animateMenuButtons();
+    initVolumeSlider();
 });
