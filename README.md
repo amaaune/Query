@@ -121,6 +121,25 @@ Aucune dépendance externe — zéro framework, zéro librairie.
 
 ---
 
+## 📝 Convention de commits
+
+Les commits suivent la convention `[TAG] Description` :
+
+| Tag | Usage |
+|---|---|
+| `[ADD]` | Ajout d'une nouvelle feature, fichier ou page |
+| `[FIX]` | Correction de bug, nettoyage ou ajustement |
+| `[DEL]` | Suppression de fichier ou code mort |
+
+**Exemples :**
+```
+[ADD] sound melangeur
+[FIX] Resize img 28M -> 6.9M
+[DEL] suppr fichiers inutiles
+```
+
+---
+
 ## 🚀 Lancement
 
 ### Prérequis
